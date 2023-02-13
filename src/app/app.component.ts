@@ -1,32 +1,44 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Dog} from "./shared/models/Dog";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  ngOnInit(): void {
+    this.doggies = this.fetchDoggos();
+  }
+
   title = 'SDA Front-End practice';
   toShow = true;
 
   fruits = ["apple", "orange", "banana", "mango"];
 
   showAlertBox() {
-    alert("Click Me is clicked!");
+    alert("Woof Woof!");
   }
 
-  doggies = ["robi", "rex", "bruno", "bosse"];
+  doggies: Dog[] = [];
+  dogNames: string[] = ["Robi", "Rex", "Bruno", "Bosse"];
+  dogTitle = "List of Dogs";
 
-  addDoggie () {
-    let dog = "Jimmy"
-    this.doggies.push(dog);
+  fetchDoggos(): Dog[] {
+    let doggos: Dog[] = [];
+
+    doggos.push(new Dog("Jack", "Dober", "Runs faster"));
+    doggos.push(new Dog("Julie", "German Shepard", "Eats well"));
+
+    return doggos;
   }
 
-
-  woofBox() {
-    alert("Woof woof!")
-  }
-
-
+ addDog() {
+    let dogName = this.dogNames.at(Math.floor(Math.random() * this.dogNames.length));
+    // @ts-ignore
+   this.doggies.push(new Dog(dogName, "Dalmian", "Barks louder"));
+ }
 
 }
+ // Create 2 arrays ,Student, teacher

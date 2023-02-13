@@ -388,17 +388,13 @@
 
   </div>
 
-           //HOMEWORK
+  <div>
+    <app-dog [dogTitle]="dogTitle" [doggies]="doggies"></app-dog>
 
-  <p *ngFor="let dog of doggies">{{ dog }}</p>
+    <p *ngIf="doggies.length < 2">Who let the dogs out?</p>
+  </div>
 
-  <p *ngIf="doggies.length < 2">Who let the dogs out?</p>
 
-  <button class="card card-small" (click)="woofBox()">Click to print Woofs!</button>
-
-  <button class="card card-small" (click)="addDoggie()">Add Doggie</button>
-
-           //HOMEWORK
 
   <!-- Next Steps -->
   <h2>Next Steps</h2>
@@ -438,7 +434,8 @@
     </button>
 
 
-    <button class="card card-small" (mouseover)="showAlertBox()">Click Me!</button>
+    <button class="card card-small" (click)="showAlertBox()">Click to get some woofs!</button>
+    <button class="card card-small" (click)="addDog()">Add doggo!</button>
   </div>
 
   <!-- Terminal -->
